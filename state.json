@@ -64,11 +64,6 @@
   "last": "2026-11-22",
   "reason": "tcp"
  },
- "api:http://rihou.vip:55/lib/drpy2.min.js": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
  "api:http://www.afasu.com/api/xml.php": {
   "fail": 4,
   "last": "2026-11-22",
@@ -83,6 +78,11 @@
   "fail": 18,
   "last": "2026-11-22",
   "reason": "tcp"
+ },
+ "api:https://aosikazy2.com/api.php/provide/vod/": {
+  "fail": 1,
+  "last": "2026-11-23",
+  "reason": "slow"
  },
  "api:https://api.1080zyku.com/inc/api_mac10.php?ac=list": {
   "fail": 10,
@@ -234,11 +234,6 @@
   "last": "2026-11-22",
   "reason": "tcp"
  },
- "api:https://github.moeyy.xyz/raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
  "api:https://huawei8.live/api.php/provide/vod/": {
   "fail": 17,
   "last": "2026-11-22",
@@ -375,116 +370,6 @@
   "reason": "tcp"
  },
  "api:https://zy.jinchancaiji.com/api.php/provide/vod/": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:aiduanju.vip": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:aoao.tv": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:app.95112475.xyz": {
-  "fail": 11,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:app.kzjtv.com": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:app.omofun1.top": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:d.kstore.space": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:dm84.net": {
-  "fail": 4,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:duopan.fun": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:mk1080.top": {
-  "fail": 6,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:op.ysdqjs.cn": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:qrh.yimkj.cn": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:rihou.vip": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:shandian.blog": {
-  "fail": 11,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:tt.iitvba.com": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:www.cyfz.top": {
-  "fail": 6,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:www.hdmyy.com": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:www.kuin.one": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:www.maolvys.com": {
-  "fail": 9,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:www.whhyn.com": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:xiaohu.xzam.cn": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:yayayaaapp.ynf.icu": {
-  "fail": 18,
-  "last": "2026-11-22",
-  "reason": "tcp"
- },
- "host:yingszj.xn--654a.cc": {
   "fail": 18,
   "last": "2026-11-22",
   "reason": "tcp"
