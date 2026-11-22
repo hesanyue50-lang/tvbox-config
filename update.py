@@ -32,6 +32,7 @@ import urllib.request
 
 PROXY = "https://gh-proxy.com/"
 TIMEOUT = 20            # 接口超时
+PLAY_MIN = 0.35         # 实测播放速率底线（MB/s≈2.8Mbps），低于它就转圈
 RESOURCE = re.compile(r"gh-proxy\.com|\.js$|\.py$", re.I)  # 解析器资源，速度不代表源质量
 SLOW_SEC = 3.0          # 接口响应超过这个秒数视为慢源，直接删除（电视端转圈都在这）
 OUT_DIR = "sources"
@@ -252,6 +253,15 @@ def main():
         dead_prev = json.load(open("dead_prev.json", encoding="utf-8"))
     except FileNotFoundError:
         dead_prev = {}
+    # 接口活着但内容已不是采集数据（卖域名页/授权到期页），连同播放太慢的源
+    def _load(name):
+        try:
+            return json.load(open(name, encoding="utf-8"))
+        except FileNotFoundError:
+            return {}
+    notapi = _load("notapi.json")
+    playslow = _load("playslow.json")
+    playslow_prev = _load("playslow_prev.json")
 
     # 汇总所有源的 api，去重后统一测一次
     all_apis, all_hosts, datasets = set(), set(), []
@@ -298,6 +308,8 @@ def main():
         kept, dropped_slow, dropped_block, dropped_perm, untested = [], 0, 0, 0, 0
         dropped_dead = 0
         dropped_host = 0
+        dropped_fake = 0
+        dropped_pslow = 0
         front, mid, back = [], [], []
         for s in sites:
             sname = s.get("name") or ""
@@ -326,6 +338,16 @@ def main():
 
             if api in dead and (not dead_prev or api in dead_prev):
                 dropped_dead += 1
+                continue
+
+            # 假活源：接口 200 但返回的不是采集数据，对电视来说等于废源
+            if api in notapi:
+                dropped_fake += 1
+                continue
+
+            # 播放速率太慢：直链实测低于 PLAY_MIN，播起来必然转圈（两天确认）
+            if api in playslow and (not playslow_prev or api in playslow_prev):
+                dropped_pslow += 1
                 continue
 
             if api in speed and speed[api] > SLOW_SEC and not RESOURCE.search(api):
@@ -367,11 +389,13 @@ def main():
             "name": name,
             "url": PROXY + "https://raw.githubusercontent.com/hesanyue50-lang/tvbox-config/main/" + path,
         })
-        drop_all = dropped_slow + dropped_host + dropped_dead + dropped_block + dropped_perm
+        drop_all = (dropped_slow + dropped_host + dropped_dead + dropped_fake
+                    + dropped_pslow + dropped_block + dropped_perm)
         rows.append((slug, name, True, len(kept), drop_all, len(front), untested))
-        print("%-14s 保留%-4d 删%-3d(接口慢%d/域名死%d/连不上%d/黑名单%d/永久%d) 快源%-3d 未测%-3d" % (
+        print("%-14s 保留%-4d 删%-3d(接口慢%d/域名死%d/连不上%d/假活%d/播放慢%d/黑名单%d) 快源%-3d 未测%-3d" % (
             slug, len(kept), drop_all, dropped_slow, dropped_host, dropped_dead,
-            dropped_block, dropped_perm, len(front), untested))
+            dropped_fake, dropped_pslow, dropped_block + dropped_perm,
+            len(front), untested))
 
     # 每轮每个源只记一次，避免被多个仓重复计数
     today = datetime.date.today().isoformat()
@@ -412,6 +436,8 @@ def main():
         "- **域名连通性**：每个源提取主域名，解析失败或 80/443 两轮都连不上的直接删除（多 DNS 复核，避免误判）",
         "- **接口测速**：直连 HTTP API 实测响应时间，超过 %.1f 秒直接删除（每个接口测两轮取优值）" % SLOW_SEC,
         "- **连不上就删**：DNS 失败、连接被重置、8 秒超时、接口 404 的源，两轮实测都失败即删除",
+        "- **假活源删**：接口返回 200 但内容已不是采集数据（卖域名页、授权到期页）的直接删除",
+        "- **播放速率**：能拿到直链的源实测分片下载速率，低于 %.2f MB/s（≈%.0f Mbps）播 720p 都会转圈，连续两天不达标即删除" % (PLAY_MIN, PLAY_MIN * 8),
         "- **可自愈**：每天从上游重新拉取再过滤，被删的源如果哪天恢复，第二天会自动回来",
         "- **排序**：实测快的排最前；jar/js/py 解析器源无法在服务端模拟播放链路，居中标注「未测」",
         "- **国外源**：YouTube、googlevideo、github.io、netlify、vercel、telegram 等命中即删",
