@@ -30,7 +30,8 @@ import time
 import urllib.parse
 import urllib.request
 
-PROXY = "https://gh-proxy.com/"
+PROXIES = ["https://gh-proxy.com/", "https://ghproxy.net/"]   # 主镜像被限流时自动换备用
+PROXY = PROXIES[0]
 TIMEOUT = 20            # 接口超时
 PLAY_MIN = 0.35         # 实测播放速率底线（MB/s≈2.8Mbps），低于它就转圈
 RESOURCE = re.compile(r"gh-proxy\.com|\.js$|\.py$", re.I)  # 解析器资源，速度不代表源质量
@@ -85,13 +86,15 @@ def fetch(url, timeout=TIMEOUT):
 
 
 def load(raw_url):
+    """直连不通就依次走镜像，镜像被限流时换下一个"""
     last = ""
     for _ in range(2):
-        for u in (raw_url, PROXY + raw_url):
+        for u in (raw_url,) + tuple(p + raw_url for p in PROXIES):
             try:
                 return json.loads(fetch(u).decode("utf-8", "ignore"))
             except Exception as e:  # noqa: BLE001
                 last = "%s: %s" % (type(e).__name__, str(e)[:50])
+        time.sleep(5)
     raise RuntimeError(last)
 
 
