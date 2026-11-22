@@ -265,6 +265,8 @@ def main():
     notapi = _load("notapi.json")
     playslow = _load("playslow.json")
     playslow_prev = _load("playslow_prev.json")
+    playdead = _load("playdead.json")
+    playdead_prev = _load("playdead_prev.json")
 
     # 汇总所有源的 api，去重后统一测一次
     all_apis, all_hosts, datasets = set(), set(), []
@@ -300,6 +302,7 @@ def main():
     print("域名快照：%d 个不通（本次上游 %d 个域名）" % (len(host_res), len(all_hosts)))
 
     seen_ok, seen_fail = set(), {}
+    built = []
     rows, urls = [], []
     for slug, name, payload, n_bad, note in datasets:
         if payload is None:
@@ -313,6 +316,7 @@ def main():
         dropped_host = 0
         dropped_fake = 0
         dropped_pslow = 0
+        dropped_pdead = 0
         front, mid, back = [], [], []
         for s in sites:
             sname = s.get("name") or ""
@@ -353,6 +357,11 @@ def main():
                 dropped_pslow += 1
                 continue
 
+            # 放不出来：列表和详情都正常，但播放地址的 CDN 域名两轮都不通（两天确认）
+            if api in playdead and (not playdead_prev or api in playdead_prev):
+                dropped_pdead += 1
+                continue
+
             if api in speed and speed[api] > SLOW_SEC and not RESOURCE.search(api):
                 seen_fail[key] = "slow"
                 dropped_slow += 1
@@ -383,22 +392,49 @@ def main():
         if dup:
             print("  去重 %d 个" % dup)
         d["sites"] = kept
+        drop_all = (dropped_slow + dropped_host + dropped_dead + dropped_fake
+                    + dropped_pslow + dropped_pdead + dropped_block + dropped_perm)
+        built.append((slug, name, d, drop_all, len(front), untested))
+        print("%-14s 保留%-4d 删%-3d(接口慢%d/域名死%d/连不上%d/假活%d/播放慢%d/放不出%d/黑名单%d) 快源%-3d 未测%-3d" % (
+            slug, len(kept), drop_all, dropped_slow, dropped_host, dropped_dead,
+            dropped_fake, dropped_pslow, dropped_pdead, dropped_block + dropped_perm,
+            len(front), untested))
 
+    # 跨仓去重：同一个源只留在优先级最高的仓。8 个仓里 96 个采集站几乎每个仓都带一份，
+    # 电视端会把它们合并显示成重复项，这里做增量分配，聚合入口只引用去重后的版本。
+    seen_x, cross = set(), 0
+    for slug, name, d, drop_all, nfront, untested in built:
+        uniq = []
+        for s in d["sites"]:
+            k = s.get("api") or ("name:" + (s.get("name") or ""))
+            if k in seen_x:
+                cross += 1
+                continue
+            seen_x.add(k)
+            uniq.append(s)
+        d["_uniq"] = uniq
+
+    for slug, name, d, drop_all, nfront, untested in built:
+        full = {k: v for k, v in d.items() if k != "_uniq"}
         path = os.path.join(OUT_DIR, slug + ".json")
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(d, f, ensure_ascii=False, separators=(",", ":"))
+            json.dump(full, f, ensure_ascii=False, separators=(",", ":"))
 
+        uniq = d["_uniq"]
+        if not uniq:
+            print("  %-12s 全部与前面的仓重复，不放进聚合入口" % slug)
+            continue
+        pack = dict(full, sites=uniq)
+        ppath = os.path.join(OUT_DIR, slug + "-uniq.json")
+        with open(ppath, "w", encoding="utf-8") as f:
+            json.dump(pack, f, ensure_ascii=False, separators=(",", ":"))
         urls.append({
             "name": name,
-            "url": PROXY + "https://raw.githubusercontent.com/hesanyue50-lang/tvbox-config/main/" + path,
+            "url": PROXY + "https://raw.githubusercontent.com/hesanyue50-lang/tvbox-config/main/" + ppath,
         })
-        drop_all = (dropped_slow + dropped_host + dropped_dead + dropped_fake
-                    + dropped_pslow + dropped_block + dropped_perm)
-        rows.append((slug, name, True, len(kept), drop_all, len(front), untested))
-        print("%-14s 保留%-4d 删%-3d(接口慢%d/域名死%d/连不上%d/假活%d/播放慢%d/黑名单%d) 快源%-3d 未测%-3d" % (
-            slug, len(kept), drop_all, dropped_slow, dropped_host, dropped_dead,
-            dropped_fake, dropped_pslow, dropped_block + dropped_perm,
-            len(front), untested))
+        rows.append((slug, name, True, len(uniq), drop_all, nfront, untested))
+    print("跨仓去重：聚合入口少 %d 个重复项（%d -> %d）" % (
+        cross, sum(len(v[2]["sites"]) for v in built), len(seen_x)))
 
     # 每轮每个源只记一次，避免被多个仓重复计数
     today = datetime.date.today().isoformat()
@@ -441,6 +477,8 @@ def main():
         "- **连不上就删**：DNS 失败、连接被重置、8 秒超时、接口 404 的源，两轮实测都失败即删除",
         "- **假活源删**：接口返回 200 但内容已不是采集数据（卖域名页、授权到期页）的直接删除",
         "- **播放速率**：能拿到直链的源实测分片下载速率，低于 %.2f MB/s（≈%.0f Mbps）播 720p 都会转圈，连续两天不达标即删除" % (PLAY_MIN, PLAY_MIN * 8),
+        "- **放不出来删**：列表和详情都能打开，但播放地址的 CDN 域名两轮都不通的，直接删除",
+        "- **跨仓去重**：8 个仓大量共用同一批源，聚合入口按仓优先级做增量分配，同一源只出现一次",
         "- **可自愈**：每天从上游重新拉取再过滤，被删的源如果哪天恢复，第二天会自动回来",
         "- **排序**：实测快的排最前；jar/js/py 解析器源无法在服务端模拟播放链路，居中标注「未测」",
         "- **国外源**：YouTube、googlevideo、github.io、netlify、vercel、telegram 等命中即删",
