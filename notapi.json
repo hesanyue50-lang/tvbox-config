@@ -1,0 +1,12 @@
+{
+ "http://wmcj8.com/inc/sapi.php": "notapi",
+ "http://www.qilinzyz.com/api.php/provide/vod/at/xml/": "notapi",
+ "https://collect.wolongzyw.com/api.php/provide/vod/": "notapi",
+ "https://json.heimuer.xyz/api.php/provide/vod/": "notapi",
+ "https://mozhuazy.com/api.php/provide/vod/": "notapi",
+ "https://mozhuazy.com/api.php/provide/vod/at/xml/": "notapi",
+ "https://mv.wogg.link/mv/vod": "notapi",
+ "https://p2100.net/api.php/provide/vod/": "notapi",
+ "https://wolongzyw.com/api.php/provide/vod/?ac=list": "notapi",
+ "https://www.911ysw.top/tianyi.php/provide/vod/": "notapi"
+}
