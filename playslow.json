@@ -1,9 +1,3 @@
 {
- "http://api.ffzyapi.com/api.php/provide/vod/at/xml/": 0.2,
- "https://api.guangsuapi.com/api.php/provide/vod/at/xml/": 0.09,
- "https://api.wujinapi.me/api.php/provide/vod/at/xml/": 0.01,
- "https://hhzyapi.com/api.php/provide/vod/at/xml/": 0.09,
- "https://jszyapi.com/api.php/provide/vod/at/xml/": 0.14,
- "https://www.huyaapi.com/api.php/provide/vod/at/xml/": 0.2,
- "https://www.mdzyapi.com/api.php/provide/vod/at/xml/": 0.12
+ "https://tyyszyapi.com/api.php/provide/vod/at/xml/": 0.26
 }
