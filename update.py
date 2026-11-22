@@ -54,8 +54,6 @@ SOURCES = [
      "电视自用"),
     ("qist-0825", "https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
      "小而精"),
-    ("qist-9918", "https://raw.githubusercontent.com/qist/tvbox/master/9918.json",
-     "极简"),
 ]
 
 UA = "Mozilla/5.0 (Linux; Android 11; TV) AppleWebKit/537.36 Chrome/120 Safari/537.36"
@@ -428,13 +426,50 @@ def main():
         ppath = os.path.join(OUT_DIR, slug + "-uniq.json")
         with open(ppath, "w", encoding="utf-8") as f:
             json.dump(pack, f, ensure_ascii=False, separators=(",", ":"))
-        urls.append({
-            "name": name,
-            "url": PROXY + "https://raw.githubusercontent.com/hesanyue50-lang/tvbox-config/main/" + ppath,
-        })
         rows.append((slug, name, True, len(uniq), drop_all, nfront, untested))
     print("跨仓去重：聚合入口少 %d 个重复项（%d -> %d）" % (
         cross, sum(len(v[2]["sites"]) for v in built), len(seen_x)))
+
+    # 合并成一个聚合仓：所有源放同一份配置里，实测快的排前面，
+    # 每个源带 group 标记来源仓，TVBox 里仍然可以按仓分组浏览。
+    all_sites = []
+    for slug, name, d, drop_all, nfront, untested in built:
+        for site in d["_uniq"]:
+            one = dict(site)
+            one.setdefault("group", name)
+            all_sites.append(one)
+
+    def _ord(site):
+        a = site.get("api") or ""
+        return (0, speed.get(a, 999.0)) if a in speed else (1, 0.0)
+
+    all_sites.sort(key=_ord)
+    merged = {"sites": all_sites}
+    for key in ("spider", "wallpaper", "danmaku", "doh"):
+        for slug, name, d, _, _, _ in built:
+            if d.get(key):
+                merged[key] = d[key]
+                break
+    for key in ("parses", "flags", "hosts", "ads", "rules", "lives"):
+        acc, seen_item = [], set()
+        for slug, name, d, _, _, _ in built:
+            for item in (d.get(key) or []):
+                sig = json.dumps(item, ensure_ascii=False, sort_keys=True) \
+                    if isinstance(item, (dict, list)) else str(item)
+                if sig in seen_item:
+                    continue
+                seen_item.add(sig)
+                acc.append(item)
+        if acc:
+            merged[key] = acc
+    apath = os.path.join(OUT_DIR, "all.json")
+    with open(apath, "w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False, separators=(",", ":"))
+    urls.append({
+        "name": "全量聚合（已去重·按实测速度排序）",
+        "url": PROXY + "https://raw.githubusercontent.com/hesanyue50-lang/tvbox-config/main/" + apath,
+    })
+    print("聚合仓 all.json：%d 个源（%d 个仓合并）" % (len(all_sites), len(rows)))
 
     # 每轮每个源只记一次，避免被多个仓重复计数
     today = datetime.date.today().isoformat()
@@ -478,7 +513,8 @@ def main():
         "- **假活源删**：接口返回 200 但内容已不是采集数据（卖域名页、授权到期页）的直接删除",
         "- **播放速率**：能拿到直链的源实测分片下载速率，低于 %.2f MB/s（≈%.0f Mbps）播 720p 都会转圈，连续两天不达标即删除" % (PLAY_MIN, PLAY_MIN * 8),
         "- **放不出来删**：列表和详情都能打开，但播放地址的 CDN 域名两轮都不通的，直接删除",
-        "- **跨仓去重**：8 个仓大量共用同一批源，聚合入口按仓优先级做增量分配，同一源只出现一次",
+        "- **跨仓去重**：各仓大量共用同一批源，聚合前按仓优先级去重，同一源只出现一次",
+        "- **单一入口**：`tvbox.json` 只挂一个 `sources/all.json`，里面是所有仓合并去重的源，实测快的排最前；每个源带 `group` 标记来源仓，可按仓筛选",
         "- **可自愈**：每天从上游重新拉取再过滤，被删的源如果哪天恢复，第二天会自动回来",
         "- **排序**：实测快的排最前；jar/js/py 解析器源无法在服务端模拟播放链路，居中标注「未测」",
         "- **国外源**：YouTube、googlevideo、github.io、netlify、vercel、telegram 等命中即删",
