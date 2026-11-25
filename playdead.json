@@ -1,8 +1,8 @@
 {
  "https://api.ddapi.cc/api.php/provide/vod/": "cdn:v.didibo2.com",
  "https://api.maoyanapi.top/api.php/provide/vod": "cdn:play.maoyanplay.top",
- "https://api.niuniuzy.me/api.php/provide/vod/": "cdn:v13.gghijk.com,v14.gghijk.com",
- "https://api.zuidapi.com/api.php/provide/vod/": "cdn:v13.zuidazym3u8.com,v14.zuidazym3u8.com",
+ "https://api.niuniuzy.me/api.php/provide/vod/": "cdn:v14.gghijk.com,v13.gghijk.com",
+ "https://api.zuidapi.com/api.php/provide/vod/": "cdn:v13.zuidazym3u8.com,v15.zuidazym3u8.com",
  "https://caiji.maotaizy.cc/api.php/provide/vod/": "cdn:vodcnd17.tix8opu.cn",
- "https://cj.yayazy.net/api.php/provide/vod/": "cdn:v13.rstuuv.com,v14.rstuuv.com"
+ "https://cj.yayazy.net/api.php/provide/vod/": "cdn:v14.rstuuv.com,v13.rstuuv.com"
 }
