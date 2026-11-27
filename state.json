@@ -1,12 +1,12 @@
 {
  "api:http://558zy.com/api.php/provide/vod/": {
   "fail": 13,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://api.xinlangapi.com/xinlangapi.php/provide/vod/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://apilj.com/api.php/provide/vod/at/json/": {
@@ -15,48 +15,48 @@
   "reason": "tcp"
  },
  "api:http://caiji.dyttzyapi.com/api.php/provide/vod": {
-  "fail": 15,
+  "fail": 14,
   "last": "2026-11-27",
   "reason": "tcp"
  },
  "api:http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml/": {
-  "fail": 15,
+  "fail": 14,
   "last": "2026-11-27",
   "reason": "tcp"
  },
  "api:http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/": {
-  "fail": 15,
+  "fail": 14,
   "last": "2026-11-27",
   "reason": "tcp"
  },
  "api:http://cj.ffzyapi.com/api.php/provide/vod": {
   "fail": 14,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://cj.ffzyapi.com/api.php/provide/vod/": {
   "fail": 14,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://cj.lziapi.com/api.php/provide/vod/": {
-  "fail": 7,
-  "last": "2026-11-26",
+  "fail": 8,
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://ffzy1.tv/api.php/provide/vod/": {
   "fail": 22,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://hysscj.com/inc/sapi.php": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://llzxcj.com/inc/sck.php": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://madouse.la/api.php/provide/vod/": {
@@ -66,7 +66,7 @@
  },
  "api:http://rihou.vip:55/lib/drpy2.min.js": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:http://www.afasu.com/api/xml.php": {
@@ -76,72 +76,72 @@
  },
  "api:http://xh1.xn--yetu07f.icu/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://49zy1.com/api.php/provide/vod/?ac=list": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.1080zyku.com/inc/api_mac10.php?ac=list": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.bwzym3u8.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.bwzyz.com/api.php/provide/vod/at/xml/": {
   "fail": 13,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.fczy888.me/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.kuaifan.tv/api.php/provide/vod": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.okzy.org/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.sexnguon.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.ukuapi.com/api.php/provide/vod/?ac=list": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.wuxianzy.net/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.wwzy.tv/api.php/provide/vod/": {
-  "fail": 23,
+  "fail": 22,
   "last": "2026-11-27",
   "reason": "tcp"
  },
  "api:https://api.xinlangapi.com/xinlangapi.php/provide//vod/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://api.yzzy-api.com/inc/api_mac10.php": {
   "fail": 23,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://apilj.com/api.php/provide/vod/at/json/?ac=list": {
@@ -151,51 +151,51 @@
  },
  "api:https://apilj.com/api.php/provide/vod/at/xml/": {
   "fail": 23,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://app.bfzyapi.com/api.php/provide/vod/": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://baihuzy.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://bfzyapi.com/api.php/provide/vod": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://bfzyapi.com/api.php/provide/vod/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://bfzyapi.com/api.php/provide/vod/?ac=list": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://bfzyapi.com/api.php/provide/vod/at/xml/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://caiji.dbzy.tv/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://caiji.dbzy5.com/api.php/provide/vod/at/xml/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://caiji.dyttzyapi.com/api.php/provide/vod/": {
-  "fail": 15,
+  "fail": 14,
   "last": "2026-11-27",
   "reason": "tcp"
  },
@@ -206,132 +206,127 @@
  },
  "api:https://caiji.qhzyapi.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://cj.lziapi.com/api.php/provide/vod": {
-  "fail": 7,
-  "last": "2026-11-26",
+  "fail": 8,
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://cj.lziapi.com/api.php/provide/vod/": {
-  "fail": 7,
-  "last": "2026-11-26",
+  "fail": 8,
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://collect.wolongzy.cc/api.php/provide/vod/at/xml/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://fqzy4.me/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://gayapi.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
-  "reason": "tcp"
- },
- "api:https://git.yylx.win/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js": {
-  "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://github.moeyy.xyz/raw.githubusercontent.com/gaotianliuyun/gao/master/lib/drpy2.min.js": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://huawei8.live/api.php/provide/vod/": {
   "fail": 23,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://jxzyw.top/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://kekezy1.com/api.php/provide/vod/?ac=list": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://leshiapi.com/api.php/provide/vod": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://m3u8.apiyhzy.com/api.php/provide/vod/": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://m3u8.apiyhzy.com/api.php/provide/vod/at/xml/": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://subocaiji.com/api.php/provide/vod/": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://subocaiji.com/api.php/provide/vod/?ac=list": {
   "fail": 16,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://suoniapi.com/api.php/provide/vod": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://suoniapi.com/api.php/provide/vod/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://suoniapi.com/api.php/provide/vod/?ac=list": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://suoniapi.com/api.php/provide/vod/at/xml/": {
   "fail": 17,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://to.to-long.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://video.adminqt.cn/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://vovzy.com/api.php/provide/vod/": {
   "fail": 13,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://www.caoliuzyw.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://www.feisuzyapi.com/api.php/provide/vod/?ac=list": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://www.moduzy.com/api.php/provide/vod/": {
-  "fail": 5,
-  "last": "2026-11-26",
+  "fail": 6,
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://www.moduzy.com/api.php/provide/vod/?ac=list": {
@@ -341,87 +336,87 @@
  },
  "api:https://www.yeszy1.com/api.php/provide/vod/": {
   "fail": 13,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://xingba111.com/api.php/provide/vod/": {
   "fail": 23,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://xzcjz.com/api.php/provide/vod": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://xzybb1.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://xzybb1.com/api.php/provide/vod/at/xml/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://yszyw1.top/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://zy.hls.one/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://zy.jinchancaiji.com/api.php/provide/vod": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "api:https://zy.jinchancaiji.com/api.php/provide/vod/": {
   "fail": 24,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:agit.ai": {
   "fail": 2,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:aiduanju.vip": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:aoao.tv": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:app.95112475.xyz": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:app.kzjtv.com": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:app.omofun1.top": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:d.kstore.space": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:duopan.fun": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:m.jubaibaic.com": {
@@ -431,32 +426,37 @@
  },
  "host:m51.gotto.top": {
   "fail": 4,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:mk1080.top": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:op.ysdqjs.cn": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:qrh.yimkj.cn": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:rihou.vip": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:rzys.xyz": {
   "fail": 2,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
+  "reason": "tcp"
+ },
+ "host:s.weixine.net": {
+  "fail": 1,
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:shandian.blog": {
@@ -464,14 +464,9 @@
   "last": "2026-11-24",
   "reason": "tcp"
  },
- "host:shdy2.com": {
-  "fail": 2,
-  "last": "2026-11-27",
-  "reason": "tcp"
- },
  "host:tt.iitvba.com": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:www.7xdy.com": {
@@ -481,12 +476,12 @@
  },
  "host:www.cyfz.top": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:www.hdmyy.com": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:www.imtlink.com": {
@@ -496,7 +491,7 @@
  },
  "host:www.kuin.one": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:www.muou.site": {
@@ -506,27 +501,27 @@
  },
  "host:www.whhyn.com": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:xiaocge.fun": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:xiaohu.xzam.cn": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:yayayaaapp.ynf.icu": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  },
  "host:yingszj.xn--654a.cc": {
   "fail": 6,
-  "last": "2026-11-27",
+  "last": "2026-11-28",
   "reason": "tcp"
  }
 }
