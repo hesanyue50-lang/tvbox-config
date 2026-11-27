@@ -1,6 +1,9 @@
 {
- "http://api.ffzyapi.com/api.php/provide/vod/at/xml/": 0.17,
- "https://taopianapi.com/cjapi/mc/vod/json.html": 0.16,
- "https://tyyszyapi.com/api.php/provide/vod/at/xml/": 0.15,
- "https://www.mdzyapi.com/api.php/provide/vod/at/xml/": 0.15
+ "http://api.ffzyapi.com/api.php/provide/vod/at/xml/": 0.16,
+ "https://api.guangsuapi.com/api.php/provide/vod/at/xml/": 0.1,
+ "https://api.wujinapi.me/api.php/provide/vod/at/xml/": 0.02,
+ "https://taopianapi.com/cjapi/mc/vod/json.html": 0.15,
+ "https://tyyszyapi.com/api.php/provide/vod/at/xml/": 0.12,
+ "https://www.huyaapi.com/api.php/provide/vod/at/xml/": 0.15,
+ "https://www.mdzyapi.com/api.php/provide/vod/at/xml/": 0.09
 }
